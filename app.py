@@ -24,7 +24,7 @@ def parse_rainfall(data):
         line = lines[index]
         # pylint: disable=unused-variable
         (val, key) = line.split("|")
-        result.append({"time": key, "value": val})
+        result.append({"time": key, "value": int(val)})
         index += 1
 
     return result
