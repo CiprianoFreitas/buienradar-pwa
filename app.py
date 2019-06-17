@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from buienradar.buienradar import (get_data, parse_data)
 from buienradar.constants import (CONTENT, RAINCONTENT, SUCCESS)
 
 app = Flask(__name__)
-
+CORS(app)
 
 def parse_rainfall(data):
     lines = data.splitlines()
@@ -23,6 +24,7 @@ def parse_rainfall(data):
 
 @app.route('/')
 def forecast():
+    
     timeframe = 60
 
     # gps-coordinates for the weather data

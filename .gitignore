@@ -1,6 +1,13 @@
 
-# Created by https://www.gitignore.io/api/flask,python
-# Edit at https://www.gitignore.io/?templates=flask,python
+# Created by https://www.gitignore.io/api/code,flask,python
+# Edit at https://www.gitignore.io/?templates=code,flask,python
+
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 ### Flask ###
 instance/*
@@ -186,4 +193,4 @@ dmypy.json
 
 # Pyre type checker
 
-# End of https://www.gitignore.io/api/flask,python
+# End of https://www.gitignore.io/api/code,flask,python
