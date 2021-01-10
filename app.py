@@ -51,8 +51,10 @@ def forecast():
         raindata = result[RAINCONTENT]
 
         result = parse_data(data, raindata, latitude, longitude, timeframe)
-
-    return jsonify({"forecast": result, "rainfall": parse_rainfall(raindata)})
+    response = jsonify(
+        {"forecast": result, "rainfall": parse_rainfall(raindata)})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 
 if __name__ == '__main__':
