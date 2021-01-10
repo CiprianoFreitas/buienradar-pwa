@@ -4,6 +4,7 @@ from buienradar.constants import (CONTENT, RAINCONTENT, SUCCESS)
 
 app = Flask(__name__)
 
+
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     if request.method == 'OPTIONS':
@@ -12,7 +13,10 @@ def add_cors_headers(response):
         if headers:
             response.headers['Access-Control-Allow-Headers'] = headers
     return response
+
+
 app.after_request(add_cors_headers)
+
 
 def parse_rainfall(data):
     lines = data.splitlines()
@@ -32,9 +36,8 @@ def parse_rainfall(data):
 
 @app.route('/')
 def forecast():
-    
     timeframe = 60
-
+    raindata = 0
     # gps-coordinates for the weather data
     latitude = float(request.args.get('latitude'))
     longitude = float(request.args.get('longitude'))
